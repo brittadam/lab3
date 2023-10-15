@@ -21,12 +21,11 @@ class App {
   getWeather(){
     //https://api.weatherbit.io/v2.0/current?lat=35.7796&lon=-78.6382&key=API_KEY&include=minutely
     let url = `https://api.weatherbit.io/v2.0/current?lat=${this.lat}&lon=${this.lng}&key=9117630991164d73894b20e2d041d492&include=minutely`
-    fetch(url).then(response => {
-      console.log(response);
+    fetch(url)
+    .then(response => {
       return response.json();
     }).then(data => {
-      console.log(data);
-      
+        document.querySelector("#weather").innerHTML = data.data[0].temp;
     }).catch(err => {
       console.log(err);
     });
