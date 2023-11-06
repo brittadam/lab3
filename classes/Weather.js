@@ -20,12 +20,13 @@ export default class Weather {
   
     getWeather(){
       //https://api.weatherbit.io/v2.0/current?lat=35.7796&lon=-78.6382&key=API_KEY&include=minutely
-      let url = `https://api.weatherbit.io/v2.0/current?lat=${this.lat}&lon=${this.lng}&key=9117630991164d73894b20e2d041d492&include=minutely`
+      let url = `https://api.weatherbit.io/v2.0/current?lat=${this.lat}&lon=${this.lng}&key=4333c4c65d1541678d0abd6602ba6021&include=minutely?units=si`
       fetch(url)
       .then(response => {
         return response.json();
       }).then(data => {
           document.querySelector("#weather").innerHTML = data.data[0].temp;
+         //let temp = data.data[0].app_temp;
       }).catch(err => {
         console.log(err);
       });
